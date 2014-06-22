@@ -1,11 +1,11 @@
 ### Method for createTidyData <- function()
 
 #### Merge the training and the test sets to create one data set.
-The function first loads feature names for the measurement data. This creates a table with two columns where names are in second column.
+The function first loads feature names for the measurement data. This creates a table with two columns where names are in the second column.
 
         features <- read.table("features.txt")
 
-Next, the function removes character "-" and ",":
+Next, the function removes characters "-" and ",":
 
         features[,2] <- sapply(features[,2],function(x) gsub("-","",x))
         features[,2] <- sapply(features[,2],function(x) gsub(",","_",x))
@@ -18,6 +18,7 @@ Next, the function loads training feature data and applies the feature names as 
         names(testData) <- features[,2]
 
 The function then merges training and test data into the same data frame using an rbind:
+        
         data <- rbind(trainData,testData)
 
 #### Extract only the measurements on the mean and standard deviation for each measurement. 
