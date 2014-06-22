@@ -2,13 +2,16 @@
 
 #### Merge the training and the test sets to create one data set.
 The function first loads feature names for the measurement data. This creates a table with two columns where names are in second column.
+
         features <- read.table("features.txt")
 
 Next, the function removes character "-" and ",":
+
         features[,2] <- sapply(features[,2],function(x) gsub("-","",x))
         features[,2] <- sapply(features[,2],function(x) gsub(",","_",x))
 
 Next, the function loads training feature data and applies the feature names as column headings.  The same is done for the test feature data:
+
         trainData <- read.table("train/X_train.txt")
         names(trainData) <- features[,2]
         testData <- read.table("test/X_test.txt")
@@ -38,6 +41,7 @@ The following code reads in the activity and subject data for both the training 
 #### Use descriptive activity names to name the activities in the data set
 
 The following code reads in the activity labels and replaces the numeric values in the data with the textual descriptions.  The key function utilized is merge where the parameters include an all.x=TRUE.
+
         activityDescriptions <- read.table("activity_labels.txt",col.names = c("num","text"))
         trainActivityLabels <- merge(trainLabel,activityDescriptions,by.x = "activity",by.y="num",all.x=TRUE)
         testActivityLabels <- merge(testLabel,activityDescriptions,by.x = "activity",by.y="num",all.x=TRUE)
