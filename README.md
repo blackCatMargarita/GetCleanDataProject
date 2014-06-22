@@ -29,3 +29,4 @@ Note that the parent directory name shown as "UCI HAR Dataset" can be any name a
 
 The returned data set will contain means of each of the measurement variables that had labels containing mean() or std().  The measurement means are provided for each valid combination of activity and subject.  Combinations of activity and subject that did not produce a valid measurement mean were dropped from the tidy set.
 
+CodeBook.md describes how this function works in more detail.
